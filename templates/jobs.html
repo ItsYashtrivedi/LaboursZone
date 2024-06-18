@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="relative">
+        <!-- --------navbar--------- -->
+        <!-- <nav class="w-screen flex bg-slate-300 p-4 justify-between">
+            <div class="md:w-1/2 w-4/5 text-2xl md:text-5xl font-medium p-4 pl-6" id="nav-part1">Labour zone</div>
+            <div id="hidden w-1/2 nav-part2">
+                <ul class="w-full flex justify-between">
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>About us</li></a>
+                    <a href=""><li>Contact us</li></a>
+                    <a href=""><button><li>Sign in</li></button></a>
+                </ul>
+            </div>
+        </nav> -->
+    
+        <nav class="absolute z-20 bg-white bg-opacity-80 top-0 hover:cursor-pointer text-3xl md:text-5xl md:p-10 flex p-3 justify-between w-screen h-12 mb-3 md:h-8">
+            <div class="md:w-1/2 w-5/6 flex items-center" id="nav-part1">
+                <a href=""><img src="../static/img/logosvg.svg" class="h-20" alt="labourzone"></a>
+                <h1 class="w-full text-3xl text-black font-bold mt-2">Labour'sZone</h1>
+            </div>
+            <div class="flex h-screen w-fit md:w-3/4 md:hidden">
+                <!-- //mobile nav -->
+                <div class="absolute -z-10 md:z-0 md:fixed right-0 top-0 text-lg m-0 h-full hidden"  id="nav-part2">
+                    <ul class="flex-col pt-28 px-6 m-0 items-center justify-center h-screen">
+                        <a href="/"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">Home</li></a>
+                        <a href="labour/about"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">About us</li></a>
+                        <a href="#contact-us"><li class="my-3 hover:opacity-65">Contact us</li></a>
+                        <li class="mt-4 hover:opacity-80  cursor-pointer"><button class="bg-blue-500 my-3 text-white text-xl p-3 px-5 rounded hover:opacity-70 hover:scale-110 ease-linear duration-200"><a href="component/register.html">Register</a></button></li>
+                    </ul>
+                </div>
+                <div class="absolute z-20 right-4 md:hidden" id="hamburger">&#9776</div>
+                <div class="absolute z-70 right-4 hidden md:hidden" id="cancel">&#10005</div>
+            </div>
+            <!-- desktop nav -->
+            <div class="hidden text-xl md:flex w-1/2 justify-between items-center h-full md:w-full" id="nav-part3">
+                <a href=""><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">Home</div></a>
+                <a href="labour/about"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">About us</div></a>
+                {% comment %} <a href="#section1"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">Jobs</div></a> {% endcomment %}
+                <a href="#contact-us"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl">Contact us</div></a>
+                <a href="accounts/login_home"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl">Login</div></a>
+                <!-- <button class="text-lg text-white bg-blue-500 p-3 px-6 rounded hover:opacity-70 hover:scale-110 ease-linear duration-300" id="register-btn"><a href="component/register.html">Register</a></button> -->
+            </div>
+        </nav>
+        <section class="flex flex-col items-center mt-4 w-screen h-fit bg-gradient-to-b from-white from-2% via-slate-50 via-25% to-slate-300 to-90% ... mb-0"  id="section5">
+            <h1 class="text-center text-3xl font-medium my-24">Jobs</h1>
+            <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box1">
+                <div class="flex justify-between" id="row-1">
+                    <h1 class="text-xl font-mono">Rahul yadav</h1>
+                    <button class="rounded shadow p-2 px-4 bg-blue-600 bg-opacity-95 text-white">Apply</button>
+                </div>
+                <div id="row2">
+                    <h1><i class="fa-solid fa-location-dot mr-1"></i>Thane</h1>
+                    <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Full time</h1>
+                    <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                        <h1>About job</h1>
+    
+                        <div class="flex">
+                            <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                            <h1 class="text-lg">20,000 Rs</h1>
+                        </div>
+                        
+                    </div>
+                    <p class="mt-3">Electrician needed.<br>Expert in installing, maintaining, and repairing electrical systems, ensuring safety and efficiency in residential and commercial environments.</p>
+                </div>
+            </div>
+            <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box2">
+                <div class="flex justify-between" id="row-1">
+                    <h1 class="text-xl font-mono">Sanjay kumar</h1>
+                    <button class="rounded shadow p-2 px-4 bg-blue-700 bg-opacity-95 text-white">Apply</button>
+                </div>
+                <div id="row2">
+                    <h1><i class="fa-solid fa-location-dot mr-1"></i>Vashi</h1>
+                    <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Temporary</h1>
+                    <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                        <h1>About job</h1>
+    
+                        <div class="flex">
+                            <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                            <h1 class="text-lg">8,000 Rs</h1>
+                        </div>
+                        
+                    </div>
+                    <p class="mt-3">Carpenter needed.<br>Skilled in woodworking, constructs structures, and installs fixtures, ensuring precision and durability in residential and commercial settings.</p>
+                </div>
+            </div>
+            <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box3">
+                <div class="flex justify-between" id="row-1">
+                    <h1 class="text-xl font-mono">Rupesh bajaj</h1>
+                    <button class="rounded shadow p-2 px-4 bg-blue-700 bg-opacity-95 text-white">Apply</button>
+                </div>
+                <div id="row2">
+                    <h1><i class="fa-solid fa-location-dot mr-1"></i>Pune</h1>
+                    <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Temporary</h1>
+                    <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                        <h1>About job</h1>
+    
+                        <div class="flex">
+                            <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                            <h1 class="text-lg">10,000 Rs</h1>
+                        </div>
+                        
+                    </div>
+                    <p class="mt-3">Plumber needed.<br>Proficient in installing, repairing, and maintaining plumbing systems, ensuring proper water flow and drainage for residential and commercial properties.</p>
+                </div>
+            </div>
+        </section>
+</body>
+</html>

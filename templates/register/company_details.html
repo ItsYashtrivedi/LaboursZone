@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Company Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% comment %} {% if has_details %}
+            <p class="message">You have already filled out your company details.</p>
+            <a href="{% url 'edit_company_details' %}" class="button">Edit Company Details</a> {% endcomment %}
+        {% comment %} {% else %} {% endcomment %}
+            <p class="message">No company details found. Please fill out the form below:</p>
+            <a href="company_form" class="button">Fill Company Details</a>
+        {% comment %} {% endif %} {% endcomment %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Company Details Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+     <!-- Include jQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- Include Select2 CSS -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+     <!-- Include Select2 JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <style>
+        /* Optional: Custom styling for Select2 dropdown */
+        .select2-container .select2-selection--multiple .select2-selection__choice {
+            background-color: #007bff;
+            color: white;
+        }
+        .select2-container .select2-selection--multiple .select2-selection__choice__remove {
+            color: white;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #edf2f7; /* Light gray-blue background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 800px; /* Maximum width */
+            box-sizing: border-box;
+        }
+        .form-input {
+            border: 1px solid #d2d6dc;
+            border-radius: 4px;
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus,
+        .form-input:hover {
+            border-color: #4a90e2; /* Blue border color on focus and hover */
+        }
+        .form-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a4a4a;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-submit-button {
+            background-color: #4a90e2;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .form-submit-button:hover {
+            background-color: #357bd8; /* Darker blue on hover */
+        }
+        .selected-items {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .selected-item {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .remove-btn {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Contractor Company Details</h1>
+        <form action="company_form" method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="form-label" for="companyName">Company Name</label>
+                <input class="form-input" name="company_name" id="companyName" type="text" placeholder="Enter your company name" required>
+            </div>
+            
+            <div class="mb-4">
+                <label class="form-label" for="ownerName">Owner's Name</label>
+                <input class="form-input" name="owner_name" id="ownerName" type="text" placeholder="Enter the owner's name" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="contactNumber">Contact Number</label>
+                <input class="form-input" name="contact_number" id="contactNumber" type="text" placeholder="Enter the contact number" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" name="email" id="email" type="email" placeholder="Enter the email address" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="city">City</label>
+                <input class="form-input" name="city" id="city" type="text" placeholder="Enter the city" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="state">State</label>
+                <input class="form-input" name="state" id="state" type="text" placeholder="Enter the state" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="postalCode">PIN Code</label>
+                <input class="form-input" name="postal_code" id="postalCode" type="text" placeholder="Enter the PIN Code" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="Address">Address</label>
+                <input class="form-input"  name="address" id="Address" type="text" placeholder="Enter the Address" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="services">Services Offered</label>
+                <select class="form-input" id="services" name="services[]" multiple>
+                    <option value="Project Management">Project Management</option>
+                    <option value="Building Construction">Building Construction</option>
+                    <option value="Renovation and Remodeling">Renovation and Remodeling</option>
+                    <option value="Demolition">Demolition</option>
+                    <option value="Site Preparation">Site Preparation</option>
+                    <option value="Electrical Work">Electrical Work</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="HVAC">HVAC</option>
+                    <option value="Roofing">Roofing</option>
+                    <option value="Flooring">Flooring</option>
+                    <option value="Painting and Decorating">Painting and Decorating</option>
+                    <option value="Carpentry">Carpentry</option>
+                    <option value="Masonry">Masonry</option>
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Insulation">Insulation</option>
+                    <option value="General Repairs">General Repairs</option>
+                    <option value="Property Maintenance">Property Maintenance</option>
+                    <option value="Pest Control">Pest Control</option>
+                    <option value="Cleaning Services">Cleaning Services</option>
+                    <option value="Handyman Services">Handyman Services</option>
+                    <option value="Architectural Design">Architectural Design</option>
+                    <option value="Engineering Services">Engineering Services</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="Environmental Consulting">Environmental Consulting</option>
+                    <option value="Safety Consulting">Safety Consulting</option>
+                    <option value="Green Building">Green Building</option>
+                    <option value="Historical Restoration">Historical Restoration</option>
+                    <option value="Waterproofing">Waterproofing</option>
+                    <option value="Fireproofing">Fireproofing</option>
+                    <option value="Security Systems">Security Systems</option>
+                    <option value="Emergency Repairs">Emergency Repairs</option>
+                    <option value="Disaster Recovery">Disaster Recovery</option>
+                    <option value="Permitting and Inspections">Permitting and Inspections</option>
+                    <option value="Material Procurement">Material Procurement</option>
+                    <option value="Logistics and Transportation">Logistics and Transportation</option>
+                </select>
+            </div>
+            
+
+
+            <div class="mb-4">
+                <label class="form-label" for="yearsExperience">Years of Experience</label>
+                <input class="form-input" name="years_experience" id="yearsExperience" type="number" placeholder="Enter the years of experience" required>
+            </div>
+
+            <button class="form-submit-button mt-6" type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#services').select2({
+                // Optional: Customize Select2 options here
+                placeholder: 'Select services',
+                closeOnSelect: false, // Keep the dropdown open after selection
+                allowClear: true // Show clear button
+            });
+        });
+    </script>
+    
+</body>
+</html>

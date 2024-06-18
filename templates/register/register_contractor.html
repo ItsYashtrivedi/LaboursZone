@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegisterContractor</title>
+    <link rel="stylesheet" href="/static/css/register.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .alert-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #ff0000; /* Red */
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.alert-content {
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+  color: #ccc;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+      </style>
+  </head>
+  <body>
+    {% if error_message %}
+    <div id="alertBox" class="alert-box">
+        <span class="close-btn" id="closeAlert">&times;</span>
+        <div class="alert-content">
+            {{ error_message }}
+        </div>
+    </div>
+{% endif %}
+        <div class="flex justify-center w-screen sm:w-full mx-auto">
+            <a href="/index.html">
+                {% comment %} <div class="absolute z-70 right-4 top-5 text-4xl font-bold cursor-pointer" id="account-cancel-btn2">&#10005
+                </div> {% endcomment %}
+            </a>
+            <section class="w-[70%] sm:w-[450px] flex flex-col items-center py-2">
+                <div class="w-full bg-[#1f07ff2a] py-8 rounded-md mb-4 text-black border-none">
+                    <form class="w-full flex flex-col gap-y-3 items-center justify-center border-none text-black" action="register_contractor" method="post">
+                        {%csrf_token%} 
+                        <input name="con_fname" class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="text" placeholder="First Name" required>
+                    <input name="con_mname" class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="text" placeholder="Middle Name" required>
+                    <input name="con_lname"  class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="text" placeholder="Last Name" required>
+                        <input name="con_phone_no" class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="text" placeholder="Phone no." required>
+                        <input name="con_email" class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="email" placeholder="Email" required>
+                        <input name="address"class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                            type="text" row="5" col="20" placeholder="Address" required>
+                        <input name="location"class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                            type="text" row="5" col="20" placeholder="Location" required>
+                        <input  name="password" class="w-[90%] h-[55px] text-[20px] rounded-[8px] hover:opacity-[0.6] shadow-md ps-[15px]"
+                        type="password" name="password" id="password" placeholder="Password" required>
+                        <input
+                            class="text-lg mt-10 shadow-md rounded px-20 py-2 hover:opacity-[0.6] bg-blue-700 text-white"
+                            type="submit" value="Register" class="submit-btn">
+                            <a href="login_contractor"><input
+                                class="text-lg pl-0 ml-0 text-wrap underline-offset-4 w-full hover:opacity-[0.6]"
+                                type="button" value="Login" class="login-btn"></a>
+                </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <script>
+            const closeAlertBtn = document.getElementById('closeAlert');
+            const alertBox = document.getElementById('alertBox');
+    
+            closeAlertBtn.addEventListener('click', () => {
+                alertBox.classList.remove('show');
+            });
+    
+            // Optionally, you can also add an event listener to show the alert box initially
+            // if it contains error messages when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                if (document.querySelector('.alert-box')) {
+                    alertBox.classList.add('show');
+                }
+            });
+        </script>
+</body>
+</html>
