@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Order</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+    .skillset {
+        margin-top: 10px;
+    }
+    
+    .skills {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .skills li {
+        display: inline-block;
+        margin-right: 10px;
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+    {% comment %} <section class="flex flex-col items-center mt-4 w-screen h-fit bg-gradient-to-b from-white from-2% via-slate-50 via-25% to-slate-300 to-90% ... mb-0"  id="section5">
+        <h1 class="text-center text-3xl font-medium my-24">Jobs</h1>
+        <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box1">
+            <div class="flex justify-between" id="row-1">
+                <h1 class="text-xl font-mono">Rahul yadav</h1>
+                <button class="rounded shadow p-2 px-4 bg-blue-600 bg-opacity-95 text-white">Apply</button>
+            </div>
+            <div id="row2">
+                <h1><i class="fa-solid fa-location-dot mr-1"></i>Thane</h1>
+                <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Full time</h1>
+                <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                    <h1>About job</h1>
+
+                    <div class="flex">
+                        <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                        <h1 class="text-lg">20,000 Rs</h1>
+                    </div>
+                    
+                </div>
+                <p class="mt-3">Electrician needed.<br>Expert in installing, maintaining, and repairing electrical systems, ensuring safety and efficiency in residential and commercial environments.</p>
+            </div>
+        </div>
+        <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box2">
+            <div class="flex justify-between" id="row-1">
+                <h1 class="text-xl font-mono">Sanjay kumar</h1>
+                <button class="rounded shadow p-2 px-4 bg-blue-700 bg-opacity-95 text-white">Apply</button>
+            </div>
+            <div id="row2">
+                <h1><i class="fa-solid fa-location-dot mr-1"></i>Vashi</h1>
+                <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Temporary</h1>
+                <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                    <h1>About job</h1>
+
+                    <div class="flex">
+                        <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                        <h1 class="text-lg">8,000 Rs</h1>
+                    </div>
+                    
+                </div>
+                <p class="mt-3">Carpenter needed.<br>Skilled in woodworking, constructs structures, and installs fixtures, ensuring precision and durability in residential and commercial settings.</p>
+            </div>
+        </div>
+        <div data-aos="" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box3">
+            <div class="flex justify-between" id="row-1">
+                <h1 class="text-xl font-mono">Rupesh bajaj</h1>
+                <button class="rounded shadow p-2 px-4 bg-blue-700 bg-opacity-95 text-white">Apply</button>
+            </div>
+            <div id="row2">
+                <h1><i class="fa-solid fa-location-dot mr-1"></i>Pune</h1>
+                <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Temporary</h1>
+                <div  class="flex justify-between text-xl font-medium mt-5 mb-1">
+                    <h1>About job</h1>
+
+                    <div class="flex">
+                        <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                        <h1 class="text-lg">10,000 Rs</h1>
+                    </div>
+                    
+                </div>
+                <p class="mt-3">Plumber needed.<br>Proficient in installing, repairing, and maintaining plumbing systems, ensuring proper water flow and drainage for residential and commercial properties.</p>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <h1>Contractor Job Records</h1>
+    {% if job_posts %}
+    {% for job_post in job_posts %}
+        <div data-aos="fade-up" data-aos-duration="1000" class="mb-8 h-fit w-4/5 md:w-1/2 md:mb-20 rounded-xl shadow text-sm font-medium bg-white p-5" id="sec5-box1">
+            <div class="flex justify-between" id="row-1">
+                <h1 class="text-xl font-mono">Contractor ID: {{ job_post.contractor.id }}</h1>
+                <button class="rounded shadow p-2 px-4 bg-blue-600 bg-opacity-95 text-white">Apply</button>
+            </div>
+            <div id="row2">
+                <h1><i class="fa-solid fa-location-dot mr-1"></i>Location: {{ job_post.location }}</h1>
+                <h1><i class="fa-solid fa-clock my-2 mr-1"></i>Start Date: {{ job_post.startdate }}</h1>
+                <h1><i class="fa-solid fa-clock my-2 mr-1"></i>End Date: {{ job_post.enddate }}</h1>
+                <div class="flex justify-between text-xl font-medium mt-5 mb-1">
+                    <h1>About job</h1>
+                    <div class="flex">
+                        <i class="fa-solid fa-wallet text-lg mr-2"></i>
+                        <h1 class="text-lg">Wage: {{ job_post.wage }}Rs</h1>
+                    </div>
+                </div>
+                <p class="mt-3">Description: {{ job_post.description }}</p>
+            </div>
+            <div class="skillset">
+                <h1>Skillset:</h1>
+                <ul class="skills">
+                    {% for skill in job_post.skillset_list %}
+                        <li>{{ skill|slice:"1:"|slice:"-1" }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No job records found for this contractor.</p>
+{% endif %}
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

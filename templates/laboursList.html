@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        
+    </style>
+</head>
+<body class="">
+    <!-- --------navbar--------- -->
+    <!-- <nav class="w-screen flex bg-slate-300 p-4 justify-between">
+        <div class="md:w-1/2 w-4/5 text-2xl md:text-5xl font-medium p-4 pl-6" id="nav-part1">Labour zone</div>
+        <div id="hidden w-1/2 nav-part2">
+            <ul class="w-full flex justify-between">
+                <a href=""><li>Home</li></a>
+                <a href=""><li>About us</li></a>
+                <a href=""><li>Contact us</li></a>
+                <a href=""><button><li>Sign in</li></button></a>
+            </ul>
+        </div>
+    </nav> -->
+
+    <nav class="absolute z-20 bg-white bg-opacity-80 top-0 hover:cursor-pointer text-3xl md:text-5xl md:p-10 flex p-3 justify-between w-screen h-12 mb-3 md:h-8">
+        <div class="md:w-1/2 w-5/6 flex items-center" id="nav-part1">
+            <a href=""><img src="../static/img/logosvg.svg" class="h-20" alt="labourzone"></a>
+            <h1 class="w-full text-3xl text-black font-bold mt-2">Labour'sZone</h1>
+        </div>
+        <div class="flex h-screen w-fit md:w-3/4 md:hidden">
+            <!-- //mobile nav -->
+            <div class="absolute -z-10 md:z-0 md:fixed right-0 top-0 text-lg m-0 h-full hidden"  id="nav-part2">
+                <ul class="flex-col pt-28 px-6 m-0 items-center justify-center h-screen">
+                    <a href="/"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">Home</li></a>
+                    <a href="/templates/about"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">About us</li></a>
+                    <a href="templates/jobs"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">Jobs</li></a>
+                    <a href="accounts/login_home"><li class="my-3 hover:opacity-80  cursor-pointer scroll-smooth">Login</li></a>
+                    <a href="#contact-us"><li class="my-3 hover:opacity-65">Contact us</li></a>
+                    <li class="mt-4 hover:opacity-80  cursor-pointer"><button class="bg-blue-500 my-3 text-white text-xl p-3 px-5 rounded hover:opacity-70 hover:scale-110 ease-linear duration-200"><a href="component/register.html">Register</a></button></li>
+                </ul>
+            </div>
+            <div class="absolute z-20 right-4 md:hidden" id="hamburger">&#9776</div>
+            <div class="absolute z-70 right-4 hidden md:hidden" id="cancel">&#10005</div>
+        </div>
+        <!-- desktop nav -->
+        <div class="hidden text-xl md:flex w-1/2 justify-between items-center h-full md:w-full" id="nav-part3">
+            <a href="/"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">Home</div></a>
+            <a href="labour/about"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">About us</div></a>
+            <a href="labour/job"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl scroll-smooth">Jobs</div></a>
+            <a href="#contact-us"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl">Contact us</div></a>
+            <a href="accounts/login_home"><div class="hover:bg-blue-100 p-4 px-7 rounded-xl">Login</div></a>
+            <!-- <button class="text-lg text-white bg-blue-500 p-3 px-6 rounded hover:opacity-70 hover:scale-110 ease-linear duration-300" id="register-btn"><a href="component/register.html">Register</a></button> -->
+        </div>
+    </nav>
+
+    <section>
+        <h1 class="text-center text-3xl font-medium mt-32 mb-10">Services</h1>
+        <div class="h-full flex flex-wrap  md:flex-row justify-evenly">
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg shadow-[0px_0px_3px_#999] flex flex-col pt-2 pb-5 items-center mt-4 hover:bg-slate-200" id="section2">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec2-box1">
+                    <img class="w-full" src="../static/img/labour5.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec2-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Electrician</h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">24x7 availability for all of the professional and
+                        dependable
+                        electrical jobs
+                        that
+                        keep property running smoothly and safely.</p>
+                </div>
+            </section>
+            <!-- ---------section3---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg  hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section3">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec3-box1">
+                    <img class="w-full" src="../static/img/labour2.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec3-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Mason
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">Elevate your work speed with expert Masons and
+                        reduce
+                        construction
+                        costs,
+                        just a
+                        click away.</p>
+                </div>
+            </section>
+            <!-- ---------section4---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour4.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Painter
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">Transform your walls with beauty and finesse, Get
+                        the Painting
+                        job
+                        done by
+                        our
+                        experts and reshape your dream Home.</p>
+                </div>
+            </section>
+            <!-- ---------section5---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour3.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Carpenter
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">A carpenter is a skilled tradesperson who specializes in working with wood to construct, repair, or install structures and fixtures.</p>
+                </div>
+            </section>
+            <!-- ---------section6---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour1.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Electician
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">An electrician is a skilled tradesperson who specializes in installing, maintaining, and repairing electrical systems and equipment.</p>
+                </div>
+            </section>
+            <!-- ---------section7---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour6.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Plumber
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">A plumber is a skilled tradesperson who specializes in installing and repairing systems used for water supply, drainage, and sewage in buildings.</p>
+                </div>
+            </section>
+            <!-- ---------section8---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour7.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Welder
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">A welder is a skilled tradesperson who joins metals together by heating them to a melting point and applying pressure or filler material to create a permanent bond..</p>
+                </div>
+            </section>
+            <!-- ---------section9---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour8.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Foreman
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">A foreman is a supervisory role responsible for overseeing and coordinating the work of a group of workers in a specific area or on a particular project.</p>
+                </div>
+            </section>
+            <!-- ---------section10---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour9.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Supervisor
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">Supervisor is a process control system for Unix-like operating systems, enabling monitoring and managing of processes, including automatic restarts upon failure.</p>
+                </div>
+            </section>
+        
+            <!-- ---------section11---------- -->
+            <section data-aos="fade-up" data-aos-duration="1000"
+                class="px-2 rounded-lg hover:bg-slate-200 pt-2 pb-5 shadow-[0px_0px_3px_#999] flex flex-col items-center mt-4" id="section4">
+                <div data-aos="fade-up" data-aos-duration="1000" class="w-fit" id="sec4-box1">
+                    <img class="w-full" src="../static/img/labour9.svg" alt="">
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col justify-center" id="sec4-box2">
+                    <h1 class="w-full text-center text-2xl font-medium p-2 mb-3 rounded-xl shadow bg-slate-100 px-7">
+                        Engineer
+                    </h1>
+                    <p class="px-5 text-lg max-w-[400px] text-justify">An engineer is a professional who applies scientific knowledge, mathematics, and ingenuity to develop solutions for technical problems or to design, build, and maintain systems, structures, or products.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="script.js"></script>
+    </body>
+    </html>

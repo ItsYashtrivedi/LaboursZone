@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <title>Post Job</title>
+    <style>
+        .skillset {
+            display: block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #ccc;
+            border: 1px solid #999;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        input[type="checkbox"]:checked + label {
+            background-color: #66cdaa;
+        }
+        .hidden {
+            display: none;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex justify-center items-center min-h-screen">
+        <form action="postjob" method="post" class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+            {% csrf_token %}
+            <h1 class="text-2xl font-bold mb-6 text-center">Post a Job</h1>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="project_name">Project Name</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" type="text" name="project_name" placeholder="Project Name">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="project_location">Project Location</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" type="text" name="project_location" placeholder="Project Location">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="wage">Wages</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" type="text" name="wage" id="salary" min="1" placeholder="Wages">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="labno">No of Labour Required</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" type="text" name="labno" placeholder="No of Labour Required">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="desc">Job Description</label>
+                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md" name="desc" placeholder="Enter About Job"></textarea>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="date">Date Range</label>
+                <div date-rangepicker class="flex items-center space-x-4">
+                    <input name="startdate" type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Select start date">
+                    <span class="text-gray-500">to</span>
+                    <input name="enddate" type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Select end date">
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2" for="occupation">Who do you need</label>
+                <select id="options" name="occupation" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <option value="">Select Option</option>
+                    <option value="Labour">Labour (मज़दूर)</option>
+                    <option value="Mason">Mason (राजमिस्त्री)</option>
+                    <option value="Carpenter">Carpenter (बढ़ई)</option>
+                    <option value="Painter">Painter (पेंटर)</option>
+                    <option value="Electician">Electician (इलेक्ट्रीशियन)</option>
+                    <option value="Plumber">Plumber (प्लंबर)</option>
+                    <option value="Welder">Welder (वेलडर)</option>
+                    <option value="Foreman">Foreman (फोरमैन)</option>
+                    <option value="Supervisor">Supervisor (सुपरवाइज़र)</option>
+                    <option value="Engineer">Engineer (इंजीनियर)</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Skillset Sections -->
+            <div id="Labour" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+                <div>
+                    <input type="checkbox" name="skillset" value="Barhelper" id="button1" />
+                    <label class="skillset" for="button1">Bar Bender Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Heavy Building Worker Helper" id="button2" />
+                    <label class="skillset" for="button2">Heavy Building Worker Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Mason Helper" id="button3" />
+                    <label class="skillset" for="button3">Mason Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Construction Material Shiftier" id="button4" />
+                    <label class="skillset" for="button4">Construction Material Shiftier</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Road Construction Worker" id="button5" />
+                    <label class="skillset" for="button5">Road Construction Worker</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Sewage Worker Helper" id="button6" />
+                    <label class="skillset" for="button6">Sewage Worker Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Factory Worker Helper" id="button7" />
+                    <label class="skillset" for="button7">Factory Worker Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Others" id="button8" />
+                    <label class="skillset" for="button8">Others</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Loading & Unloading Labour" id="button9" />
+                    <label class="skillset" for="button9">Loading & Unloading Labour</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Lanter Worker Helper" id="button10" />
+                    <label class="skillset" for="button10">Lanter Worker Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Manual Scavangers" id="button11" />
+                    <label class="skillset" for="button11">Manual Scavangers</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Concrete Mixer Labour" id="button12" />
+                    <label class="skillset" for="button12">Concrete Mixer Labour</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Shuttering Helper" id="button13" />
+                    <label class="skillset" for="button13">Shuttering Helper</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Stone Crusher" id="button14" />
+                    <label class="skillset" for="button14">Stone Crusher</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Mines Exacavator" id="button15" />
+                    <label class="skillset" for="button15">Mines Exacavator</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Gravels Segmentation Labour" id="button16" />
+                    <label class="skillset" for="button16">Gravels Segmentation Labour</label>
+                </div>
+            </div>
+
+
+            
+            <div id="Mason" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+            
+            
+            
+                <div>
+                    <input type="checkbox" name="skillset" value="Lanter Mason" id="button17" />
+                    <label class="skillset" for="button17">Lanter Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Tiles Mason" id="button18" />
+                    <label class="skillset" for="button18">Tiles Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Stone Mason" id="button19" />
+                    <label class="skillset" for="button19">Stone Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Brick Mason" id="button20" />
+                    <label class="skillset" for="button20">Brick Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Shuttering" id="button21" />
+                    <label class="skillset" for="button21">Shuttering</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Marbles Mason" id="button22" />
+                    <label class="skillset" for="button22">Marbles Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Flooring" id="button23" />
+                    <label class="skillset" for="button23">Flooring</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Bar Bender" id="button24" />
+                    <label class="skillset" for="button24">Bar Bender</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Composite Mason" id="button25" />
+                    <label class="skillset" for="button25">Composite Mason</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="skillset" value="Fitter" id="button26" />
+                <label class="skillset" for="button26">Fitter</label><br />
+                </div>
+               <div> 
+                <input type="checkbox" name="skillset" value="Cement Concrete Mason" id="button27" />
+                <label class="skillset" for="button27">Cement Concrete Mason</label><br />
+                </div>
+                <div>
+                <input type="checkbox" name="skillset" value="Plastering Mason" id="button28" />
+                <label class="skillset" for="button28">Plastering Mason</label><br />
+            </div>
+            <div>
+                <input type="checkbox" name="skillset" value="Lime Concrete Mason" id="button29" />
+                <label class="skillset"for="button29">Lime Concrete Mason</label><br />
+            </div>
+            <div>
+            <input type="checkbox" name="skillset" value="Gaters/Columns Mason" id="button30" />
+                <label class="skillset"for="button30">Gaters/Columns Mason</label><br />
+                </div>
+            </div>
+
+            <!-- Add other occupation divs similar to above -->
+            <div id="Carpenter" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+            <!-- <div id="Carpenter" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Bed" id="button31" />
+                <label class="skillset"for="button31">Bed</label><br />
+            </div>
+            <div>
+                <input type="checkbox" name="skillset" value="Drill Hanging" id="button32" />
+                <label class="skillset" for="button32">Drill Hanging</label><br />
+            </div>
+            <div>
+                <input type="checkbox" name="skillset" value="Window" id="button33" />
+                <label class="skillset" for="button33">Window</label><br />
+            </div>
+            <div>
+                <input type="checkbox" name="skillset" value="Door" id="button34" />
+                <label class="skillset"for="button34">Door</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Sofa" id="button35" />
+                <label class="skillset" for="button35">Sofa</label><br />
+            </div>
+            
+            <div><input type="checkbox" name="skillset" value="Helper" id="button36" />
+                <label class="skillset" for="button36">Helper</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Modular Kitchen" id="button37" />
+                <label class="skillset" for="button37">Modular Kitchen</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Cupboard & Drawer" id="button38" />
+                <label class="skillset" for="button38">Cupboard & Drawer</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Television Frames" id="button39" />
+                <label class="skillset" for="button39">Television Frames</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Balcony" id="button40" />
+                <label class="skillset" for="button40">Balcony</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Other Furniture" id="button41" />
+                <label class="skillset" for="button41">Other Furniture</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Almira" id="button42" />
+                <label class="skillset" for="button42">Almira</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Door & Window Frames" id="button43" />
+                <label class="skillset" for="button43">Door & Window Frames</label><br />
+            </div>
+        </div>
+    
+        <div id="Painter" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+                <!-- <div id="Painter" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Stencils " id="button44" />
+                <label class="skillset"for="button44">Stencils </label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Enamel Painter" id="button45" />
+                <label class="skillset" for="button45">Enamel Painter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Putty" id="button46" />
+                <label class="skillset" for="button46">Putty</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Helper" id="button47" />
+                <label class="skillset" for="button47">Helper</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Water Proofing" id="button48" />
+                <label class="skillset" for="button48">Water Proofing</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Wood Polishing" id="button49" />
+                <label class="skillset" for="button49">Wood Polishing</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Textured Wall" id="button50" />
+                <label class="skillset" for="button50">Textured Wall</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="POP" id="button51" />
+                <label class="skillset" for="button51">POP</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Home/Wall Painter" id="button52" />
+                <label class="skillset" for="button52">Home/Wall Painter</label><br />
+            </div>
+        </div>    
+        <div id="Electician" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+            
+                <!-- <div id="Electician" class="buttonGroup hidden"> -->
+            <div>
+                <input type="checkbox" name="skillset" value="Electric Panels" id="button53" />
+                <label class="skillset" for="button53">Electric Panels</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Switch & Socket" id="button54" />
+                <label class="skillset" for="button54">Switch & Socket</label><br />
+            </div>
+            <div>
+
+                <input type="checkbox" name="skillset" value="Power Failure Check" id="button55" />
+                <label class="skillset" for="button55">Power Failure Check</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Light" id="button56" />
+                <label class="skillset" for="button56">Light</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Electric System Diagnosis" id="button57" />
+                <label class="skillset" for="button57">Electric System Diagnosis</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Wiring" id="button58" />
+                <label class="skillset" for="button58">Wiring</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Drill & Hanging" id="button59" />
+                <label  class="skillset" for="button59">Drill & Hanging</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Fan" id="button60" />
+                <label  class="skillset" for="button60">Fan</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Appliances Installation" id="button61" />
+                <label class="skillset" for="button61">Appliances Installation</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Electrician Helper" id="button62" />
+                <label class="skillset" for="button62">Electrician Helper</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Chrome Plated Fittings" id="button63" />
+                <label class="skillset" for="button63">Chrome Plated Fittings</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="MCB & Fuse " id="button64" />
+                <label class="skillset" for="button64">MCB & Fuse </label><br />
+            </div>
+
+        </div>
+    
+        <div id="Plumber" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+                <!-- <div id="Plumber" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value=" Kitchen Sink " id="button65" />
+                <label class="skillset"for="button65"> Kitchen Sink </label><br /> 
+                </div>
+                <div><input type="checkbox" name="skillset" value="Basin & Sink" id="button66" />
+                <label class="skillset"for="button66">Basin & Sink</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Pipe Fittings" id="button67" />
+                <label class="skillset"for="button67">Pipe Fittings</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Bathroom Fitting" id="button68" />
+                <label class="skillset"for="button68">Bathroom Fitting</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Geyser Connection" id="button69" />
+                <label class="skillset"for="button69">Geyser Connection</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Bath Tub Installation" id="button70" />
+                <label class="skillset"for="button70">Bath Tub Installation</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Tap & Mixer" id="button71" />
+                <label class="skillset"for="button71">Tap & Mixer</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Water RO Connection" id="button72" />
+                <label class="skillset"for="button72">Water RO Connection</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Water Tank" id="button73" />
+                <label class="skillset"for="button73">Water Tank</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Blockage" id="button74" />
+                <label class="skillset"for="button74">Blockage</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Toilet" id="button75" />
+                <label class="skillset"for="button75">Toilet</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Plumber Helper" id="button76" />
+                <label class="skillset"for="button76">Plumber Helper</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Water Tank Cleaning" id="button77" />
+                <label class="skillset"for="button77">Water Tank Cleaning</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Soap Dispenser Showers" id="button78" />
+                <label class="skillset"for="button78">Soap Dispenser, Showers</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Bath Fixing" id="button79" />
+                <label class="skillset"for="button79">Bath Fixing</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Submersible Motor Installation" id="button80" />
+                <label class="skillset"for="button80">Submersible Motor Installation</label><br />
+            </div>
+        </div>
+
+        <div id="Welder" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+                <!-- <div id="Welder" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Fabrication" id="button81" />
+                <label class="skillset"for="button81">Fabrication</label><br />
+                </div>
+        </div>
+        <div id="Foreman" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+                <!-- <div id="Foreman" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Painter" id="button82" />
+                <label class="skillset"for="button82">Painter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Plumber" id="button83" />
+                <label class="skillset"for="button83">Plumber</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Electrician" id="button84" />
+                <label class="skillset"for="button84">Electrician</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Carpenter" id="button85" />
+                <label class="skillset"for="button85">Carpenter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Mason" id="button86" />
+                <label class="skillset"for="button86">Mason</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Welder" id="button87" />
+                <label class="skillset"for="button87">Welder</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Labour" id="button88" />
+                <label class="skillset"for="button88">Labour</label><br />
+            </div>
+        </div>
+
+        <div id="Supervisor" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+
+            <!-- <div id="Supervisor" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Electrician" id="button89" />
+                <label class="skillset"for="button89">Electrician</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Labour" id="button90" />
+                <label class="skillset"for="button90">Labour</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Mason" id="button91" />
+                <label class="skillset"for="button91">Mason</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Painter" id="button92" />
+                <label class="skillset"for="button92">Painter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Plumber" id="button93" />
+                <label class="skillset" for="button93">Plumber</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Carpenter" id="button94" />
+                <label class="skillset" for="button94">Carpenter</label><br />
+            </div>
+        </div>
+        <div id="Engineer" class="buttonGroup hidden mb-4 grid grid-cols-3 gap-4">
+
+                <!-- <div id="Engineer" class="buttonGroup hidden"> -->
+                <div><input type="checkbox" name="skillset" value="Carpenter" id="button95" />
+                <label class="skillset"for="button95">Carpenter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Electrician" id="button96" />
+                <label class="skillset"for="button96">Electrician</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Plumber" id="button97" />
+                <label class="skillset"for="button97">Plumber</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Mason" id="button98" />
+                <label class="skillset" for="button98">Mason</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Painter" id="button99" />
+                <label class="skillset" for="button99">Painter</label><br />
+            </div>
+            <div><input type="checkbox" name="skillset" value="Civil" id="button100" />
+                <label class="skillset"for="button100">Civil</label><br />
+            </div>
+        </div>
+    
+
+            <div class="text-center">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('options').addEventListener('change', function() {
+            var allGroups = document.querySelectorAll('.buttonGroup');
+            allGroups.forEach(group => group.classList.add('hidden'));
+
+            var selectedGroup = document.getElementById(this.value);
+            if (selectedGroup) {
+                selectedGroup.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

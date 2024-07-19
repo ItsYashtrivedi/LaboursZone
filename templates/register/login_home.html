@@ -1,0 +1,108 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <a href="./login_contractor">
+                <h3 class="card-title">
+                    Contractor
+                </h3>
+            </a>
+        </div>    
+        </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <a href="login_labour"><h3 class="card-title">
+                        Labour
+                    </h3></a>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
+ {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="w-full h-42 overflow-y-scroll no-scrollbar">
+  <div class="pr-16 bg-white max-md:pr-5">
+    <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+      <div class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
+        <div
+          class="flex flex-col justify-center items-start px-16 py-20 w-full bg-purple-100 max-md:px-5 max-md:mt-10 max-md:max-w-full"
+        >
+          <img
+            loading="lazy"
+            src="/static/img/image 1.png"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col ml-5 w-[44%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col mt-10 max-md:mt-10 max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="/static/img/logosvg.svg"
+            class="self-center aspect-square w-[92px]"
+          />
+          <div
+            class="mt-5 text-3xl font-semibold leading-10 text-black max-md:max-w-full"
+          >
+            Login
+          </div>
+          <div
+            class="mt-6 text-base font-semibold leading-6 text-black max-md:max-w-full"
+          >
+            
+          </div>
+          <div class="self-center mt-20 max-w-full w-[439px] max-md:mt-10">
+            <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+              <div class="flex flex-col w-[54%] max-md:ml-0 max-md:w-full">
+                <a href="./login_contractor">
+                <div
+                  class="flex flex-col grow px-12 pt-12 pb-7 w-full text-base font-semibold leading-6 text-black whitespace-nowrap bg-fuchsia-50 rounded-md border border-black border-solid max-md:px-5 max-md:mt-10"
+                >
+                  <img
+                    loading="lazy"
+                    src="/static/img/Organization.png"
+                    class="self-center aspect-[1.06] w-[70px]"
+                  />
+                  <div class="mt-3.5"><h1>contractor</h1></div>
+                </div>
+              </div></a>
+              <div class="flex flex-col ml-5 w-[46%] max-md:ml-0 max-md:w-full">
+                <a href="login_labour">
+                <div
+                  class="flex flex-col grow px-14 pt-12 pb-7 w-full text-base font-semibold leading-6 text-black whitespace-nowrap bg-fuchsia-50 rounded-md border border-black border-solid max-md:px-5 max-md:mt-10"
+                >
+                  <img
+                    loading="lazy"
+                    src="/static/img/Engineer.png"
+                    class="self-center aspect-[0.96] w-[67px]"
+                  />
+                  <div class="mt-2.5">labour</div>
+                </div>
+              </div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

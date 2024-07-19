@@ -1,0 +1,97 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Authentication</title>
+        <style>
+            .alert-box {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 300px;
+      background-color: #ff0000; /* Red */
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .alert-content {
+      font-size: 16px;
+  }
+  
+  .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+  }
+  
+  .close-btn:hover {
+      color: #ccc;
+  }
+  
+  .show {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+          </style>
+        <link rel="stylesheet" href="/static/css/register.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        {% if error_message %}
+        <div id="alertBox" class="alert-box">
+            <span class="close-btn" id="closeAlert">&times;</span>
+            <div class="alert-content">
+                {{ error_message }}
+            </div>
+        </div>
+    {% endif %}
+        {% comment %} <div class="absolute z-70 right-8 top-5 text-4xl font-bold cursor-pointer" id="account-cancel-btn">&#10005</div> {% endcomment %}
+        <div class="card hidden md:flex">
+            <form action="login_contractor" method="post">
+                {%csrf_token%} 
+                <h2 class="text-3xl font-bold text-center mt-4">Login as Contractor</h2>
+                <!-- <input type="text" placeholder="Name"> -->
+                <input type="text" name="phone" placeholder="Phone_Number">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="submit" value="Login" class="submit-btn">
+                {% comment %} <input type="button" value="Login with google" class="login-btn2"> {% endcomment %}
+            </form>
+        </div>
+
+        <div class="md:hidden w-screen h-screen flex justify-center items-center text-lg">
+            <form class="w-4/5 h-2/3 bg-blue-100 flex justify-center items-center text-lg rounded-xl" action="login_contractor" method="post">
+                <input class="text-lg" type="text" name="phone" placeholder="Phone_Number">
+                <input class="text-lg" type="password" name="password" id="password" placeholder="Password">
+                <input class="text-lg mt-10 bg-blue-700 text-white " type="submit" value="Login" class="submit-btn">
+                {% comment %} <input class="text-lg mt-0 text-blue-800 " type="button" value="Login with google" class="login-btn2"> {% endcomment %}
+            </form>
+        </div>
+        <script>
+            const closeAlertBtn = document.getElementById('closeAlert');
+            const alertBox = document.getElementById('alertBox');
+    
+            closeAlertBtn.addEventListener('click', () => {
+                alertBox.classList.remove('show');
+            });
+    
+            // Optionally, you can also add an event listener to show the alert box initially
+            // if it contains error messages when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                if (document.querySelector('.alert-box')) {
+                    alertBox.classList.add('show');
+                }
+            });
+        </script>
+        
+    </body>
+    </html>

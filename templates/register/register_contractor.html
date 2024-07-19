@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Contractor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .alert-box {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 300px;
+        background-color: #ff0000;
+        color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      .alert-content {
+        font-size: 16px;
+      }
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+      }
+      .close-btn:hover {
+        color: #ccc;
+      }
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    {% if error_message %}
+      <div id="alertBox" class="alert-box show">
+        <span class="close-btn" id="closeAlert">&times;</span>
+        <div class="alert-content">
+          {{ error_message }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="flex justify-center items-center w-full">
+      <section class="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-bold text-center mb-6">Register Contractor</h1>
+        <form class="w-full flex flex-col gap-y-4" action="register_contractor" method="post">
+          {% csrf_token %}
+          <div class="flex flex-col gap-y-4 md:flex-row md:gap-x-4">
+            <input name="con_fname" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="First Name" required>
+            <input name="con_mname" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="Middle Name" required>
+            <input name="con_lname" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="Last Name" required>
+          </div>
+          <input name="con_phone_no" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="Phone no." required>
+          <input name="con_email" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="email" placeholder="Email" required>
+          <input name="address" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="Address" required>
+          <input name="location" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="text" placeholder="Location" required>
+          <input name="password" class="w-full h-12 text-lg rounded-lg shadow-sm px-4" type="password" placeholder="Password" required>
+          <button class="w-full h-12 text-lg rounded-lg shadow-sm bg-blue-700 text-white hover:bg-blue-600 transition duration-300">Register</button>
+        </form>
+        <div class="text-center mt-4">
+          <a href="login_contractor" class="text-blue-700 hover:underline">Login</a>
+        </div>
+      </section>
+    </div>
+    <script>
+      const closeAlertBtn = document.getElementById('closeAlert');
+      const alertBox = document.getElementById('alertBox');
+
+      closeAlertBtn.addEventListener('click', () => {
+        alertBox.classList.remove('show');
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (alertBox) {
+          alertBox.classList.add('show');
+        }
+      });
+    </script>
+  </body>
+</html>
